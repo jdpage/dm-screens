@@ -1,4 +1,6 @@
 \documentclass[10pt,letterpaper]{article}
+\newcommand{\docver}{v0.1}
+
 \usepackage[utf8]{luainputenc}
 \usepackage[margin=10mm,top=5mm,bottom=20mm]{geometry}
 \usepackage{amsmath}
@@ -33,6 +35,7 @@
   StylisticSet=18,
 ]{Junicode}
 
+% From https://github.com/michaelplews/alchemy-latex
 \newcommand{\glass}[1]{%
   \begin{tikzpicture}[#1]%
     \draw (0, 0)
@@ -59,8 +62,9 @@
 \renewcommand{\footrulewidth}{0pt}
 \fancyhf{}
 \fancyfoot[EOL]{%
-  \small\oldnum\scshape\smallskip
-  Unofficial AD{\normalfont\&}D 2e DM Screen / \thepage%
+  \small\oldnum\scshape
+  Unofficial AD{\normalfont\&}D 2e DM Screen \docver\\
+  Sheet \thepage%
 }
 \fancyfoot[EOC]{%
   \smallskip
