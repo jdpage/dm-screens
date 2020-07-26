@@ -1,12 +1,9 @@
 \documentclass[10pt,letterpaper]{article}
-\newcommand{\docver}{v0.1}
 
 \usepackage[utf8]{luainputenc}
 \usepackage[margin=10mm,top=5mm,bottom=20mm]{geometry}
 \usepackage{amsmath}
-% \usepackage[sfdefault]{merriweather}
-% \usepackage[bitstream-charter]{mathdesign}
-% \usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{tabularx}
@@ -18,10 +15,23 @@
 \usepackage{enumitem}
 \usepackage{sectsty}
 \usepackage{fancyhdr}
+\usepackage{titling}
 \usepackage[symbol]{parnotes}
 \usepackage{ccicons}
 \usepackage{tikz}
 \usetikzlibrary{calc}
+
+
+\newcommand{\docver}{v0.2}
+\title{Unofficial AD{\normalfont\&}D 2e DM Screen}
+\author{Jonathan Page}
+\date{}
+\hypersetup{
+  pdfinfo={
+    Title=\thetitle,
+    Author=\theauthor
+  }
+}
 
 \setmainfont[
   Contextuals=Alternate,
@@ -62,8 +72,7 @@
 \renewcommand{\footrulewidth}{0pt}
 \fancyhf{}
 \fancyfoot[EOL]{%
-  \small\oldnum\scshape
-  Unofficial AD{\normalfont\&}D 2e DM Screen \docver\\
+  \small\oldnum\scshape\thetitle\ \docver\\
   Sheet \thepage%
 }
 \fancyfoot[EOC]{%
@@ -71,8 +80,8 @@
   \glass{scale=1, line width=0.5pt}%
 }
 \fancyfoot[EOR]{%
-  \small\oldnum\scshape Text \ccCopy\ 1989, 1995, 2003 Wizards of the Coast LLC \\
-  Layout {\normalfont\&} Tweaks \ccbysa\ 2020 J. Page%
+  \small\oldnum\scshape Tables \ccCopy\ 1989, 1995, 2003 Wizards of the Coast LLC \\
+  Otherwise \ccbysa\ 2020 J. Page%
 }
 
 \newcolumntype{C}{>{\centering\arraybackslash}X}
