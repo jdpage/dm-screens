@@ -1,0 +1,23 @@
+name: LaTeX
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Touch things to make build work
+      run: "touch all"
+    - name: Github Action for LaTeX
+      uses: xu-cheng/latex-action@1.2.1
+      with:
+        root_file: all
+        compiler: make
+        args: ""
+        extra_system_packages: make
+    - name: Make artifact directory
+      run: "mkdir -p artifacts && cp *.pdf artifacts"
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: dm-screen-2e-${{ github.sha }}-${{ github.run_number }}
+        path: artifacts

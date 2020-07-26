@@ -1,0 +1,420 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{luainputenc}
+\usepackage[margin=10mm,top=5mm,bottom=20mm]{geometry}
+\usepackage{amsmath}
+% \usepackage[sfdefault]{merriweather}
+% \usepackage[bitstream-charter]{mathdesign}
+% \usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{pifont}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{sectsty}
+\usepackage{fancyhdr}
+\usepackage[symbol]{parnotes}
+\usepackage{ccicons}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\setmainfont[
+  Contextuals=Alternate,
+  Ligatures=Discretionary,
+  StylisticSet=18,
+]{Junicode}
+\newfontfamily\oldnum[
+  Contextuals=Alternate,
+  Ligatures=Discretionary,
+  Numbers=OldStyle,
+  StylisticSet=18,
+]{Junicode}
+
+\newcommand{\glass}[1]{%
+  \begin{tikzpicture}[#1]%
+    \draw (0, 0)
+    arc (135+7.8:135:1.2ex)
+    arc (135:90:0.6ex)
+    arc (90:-90:0.3ex)
+    arc (-90:-135:0.6ex)
+    arc (-135:-135-7.8:1.2ex)
+    arc (45-7.8:45:1.2ex)
+    arc (45:90:0.6ex)
+    arc (90:270:0.3ex)
+    arc (270:315:0.6ex)
+    arc (315:315+7.8:1.2ex)
+    -- cycle
+    -- ++ (270:1.25ex)
+       ++ (90:0.4ex)
+       ++ (180:0.4ex)
+    -- ++ (0:0.8ex);
+  \end{tikzpicture}%
+}
+
+\pagestyle{fancyplain}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhf{}
+\fancyfoot[EOL]{%
+  \small\oldnum\scshape\smallskip
+  Unofficial AD{\normalfont\&}D 2e DM Screen / \thepage%
+}
+\fancyfoot[EOC]{%
+  \smallskip
+  \glass{scale=1, line width=0.5pt}%
+}
+\fancyfoot[EOR]{%
+  \small\oldnum\scshape Text \ccCopy\ 1989, 1995, 2003 Wizards of the Coast LLC \\
+  Layout {\normalfont\&} Tweaks \ccbysa\ 2020 J. Page%
+}
+
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\definecolor{xred}{RGB}{210,62,52}
+\allsectionsfont{\normalfont\color{xred}\scshape\centering}
+
+\newcommand{\STR}[0]{{\scshape str}}
+\newcommand{\DEX}[0]{{\scshape dex}}
+\newcommand{\INT}[0]{{\scshape int}}
+\newcommand{\WIS}[0]{{\scshape wis}}
+\newcommand{\CON}[0]{{\scshape con}}
+\newcommand{\CHA}[0]{{\scshape cha}}
+\newcommand{\DM}[0]{{\scshape dm}}
+\newcommand{\AC}[0]{{\scshape ac}}
+\newcommand{\HP}[0]{{\scshape hp}}
+\newcommand{\XP}[0]{{\scshape xp}}
+\newcommand{\HD}[0]{{\scshape hd}}
+\newcommand{\wk}[0]{{\linum{}1wk}}
+\newcommand{\THACO}[0]{{\scshape thac0}}
+
+\begin{document}
+\noindent
+\begin{minipage}[t]{\textwidth}
+  \section*{Calculated THAC0s}
+  \begin{tabularx}{\textwidth}{Xrrrrrrrrrrrrrrrrrrrr}
+    \toprule
+    Group & \multicolumn{20}{c}{Level} \\
+    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 \\
+    \midrule
+    Priest & 20 & 20 & 20 & 18 & 18 & 18 & 16 & 16 & 16 & 14 & 14 & 14 & 12 & 12 & 12 & 10 & 10 & 10 & 8 & 8 \\
+    Rogue & 20 & 20 & 19 & 19 & 18 & 18 & 17 & 17 & 16 & 16 & 15 & 15 & 14 & 14 & 13 & 13 & 12 & 12 & 11 & 11 \\
+    Warrior & 20 & 19 & 18 & 17 & 16 & 15 & 14 & 13 & 12 & 11 & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 \\
+    Wizard & 20 & 20 & 20 & 19 & 19 & 19 & 18 & 18 & 18 & 17 & 17 & 17 & 16 & 16 & 16 & 15 & 15 & 15 & 14 & 14 \\
+    \bottomrule
+  \end{tabularx}
+  \smallskip
+
+  \noindent
+  \begin{tabularx}{\textwidth}{Xcccccccccccccccccc}
+    \toprule
+    & \le ½ & 1--1 & 1+ & 2+ & 3+ & 4+ & 5+ & 6+ & 7+ & 8+ & 9+ & 10+ & 11+ & 12+ & 13+ & 14+ & 15+ & 16+ \\
+    \midrule
+    Creature & 20 & 20 & 19 & 19 & 17 & 17 & 15 & 15 & 13 & 13 & 11 & 11 & 9 & 9 & 7 & 7 & 5 & 5 \\
+    \bottomrule
+  \end{tabularx}
+\end{minipage}
+\smallskip
+
+\noindent
+\begin{minipage}[t]{0.495\textwidth}
+  \section*{Combat Modifiers}
+  \begin{tabularx}{\textwidth}{Xr}
+    \toprule
+    Situation & Attack Roll Modifier \\
+    \midrule
+    Attacker on higher ground & +1 \\
+    Defender invisible & -4 \\
+    Defender off-balance & +2 \\
+    Defender sleeping or held & Automatic \\
+    Defender stunned or prone & +4 \\
+    Defender surprised & +1 \\
+    Missile fire, long range & -5 \\
+    Missile fire, short range & -2 \\
+    Rear attack & +2 \\
+    \bottomrule
+  \end{tabularx}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.495\textwidth}
+  \section*{Standard Modifiers to Initiative}
+  \begin{tabularx}{\textwidth}{Xr}
+    \toprule
+    Specific Situation & Modifier \\
+    \midrule
+    Hasted & -2 \\
+    Slowed & +2 \\
+    On higher ground & -1 \\
+    Set to receive a charger & -2 \\
+    Wading or slippery footing & +2 \\
+    Wading in deep water & +4 \\
+    Foreign environment & +6 \\
+    Hindered (tangled, climbing, held) & +3 \\
+    Waiting (see {\scshape phb} Chapter 11) & +1 \\
+    \bottomrule
+  \end{tabularx}
+\end{minipage}
+\bigskip
+
+\noindent
+\begin{minipage}[t]{0.660\textwidth}
+  \section*{Character Saving Throws}
+  \small
+  \begin{tabularx}{\textwidth}{Xcrrrrr}
+    \toprule
+    & & \multicolumn{5}{c}{\textit{Attack to be Saved Against}} \\
+    & Level
+    & \makecell{Paralyzation/\\Poison/Death}
+    & \makecell{Rod/Staff/\\Wand}
+    & \makecell{Petrification/\\Polymorph}
+    & Breath
+    & Spell \\
+    \midrule
+    Priests
+    &  1--3  & 10 & 14 & 13 & 16 & 15 \\
+    &  4--6  &  9 & 13 & 12 & 15 & 14 \\
+    &  7--9  &  7 & 11 & 10 & 13 & 12 \\
+    & 10--12 &  6 & 10 &  9 & 12 & 11 \\
+    & 13--15 &  5 &  9 &  8 & 11 & 10 \\
+    & 16--18 &  4 &  8 &  7 & 10 &  9 \\
+    &   19+  &  2 &  6 &  5 &  8 &  7 \\
+    \midrule
+    Rogues
+    &  1--4  & 13 & 14 & 12 & 16 & 15 \\
+    &  5--8  & 12 & 12 & 11 & 15 & 13 \\
+    &  9--12 & 11 & 10 & 10 & 14 & 11 \\
+    & 13--16 & 10 &  8 &  9 & 13 &  9 \\
+    & 17--20 &  9 &  6 &  8 & 12 &  7 \\
+    &   21+  &  8 &  4 &  7 & 11 &  5 \\
+    \midrule
+    Warriors
+    &    0   & 16 & 18 & 17 & 20 & 19 \\
+    &  1--2  & 14 & 16 & 15 & 17 & 17 \\
+    &  3--4  & 13 & 15 & 14 & 16 & 16 \\
+    &  5--6  & 11 & 13 & 12 & 13 & 14 \\
+    &  7--8  & 10 & 12 & 11 & 12 & 13 \\
+    &  9--10 &  8 & 10 &  9 &  9 & 11 \\
+    & 11--12 &  7 &  9 &  8 &  8 & 10 \\
+    & 13--14 &  5 &  7 &  6 &  5 &  8 \\
+    & 15--16 &  4 &  6 &  5 &  4 &  7 \\
+    &   17+  &  3 &  5 &  4 &  4 &  6 \\
+    \midrule
+    Wizards
+    &  1--5  & 14 & 11 & 13 & 15 & 12 \\
+    &  6--10 & 13 &  9 & 11 & 13 & 10 \\
+    & 11--15 & 11 &  7 &  9 & 11 &  8 \\
+    & 16--20 & 10 &  5 &  7 &  9 &  6 \\
+    &   21+  &  8 &  3 &  5 &  7 &  4 \\
+    \bottomrule
+  \end{tabularx}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.330\textwidth}
+  \section*{Armor Class Ratings}
+  \begin{tabularx}{\textwidth}{lXr}
+    \toprule
+    \multicolumn{2}{l}{Type of Armor} & \AC \\
+    \midrule
+    &\hspace{-1.2em}None & 10 \\
+    &\hspace{-1.2em}Shield only & 9 \\
+    &\hspace{-1.2em}Leather or padded armor & 8 \\
+    &\hspace{-1.2em}Leather or padded armor + shield, studded leather, or ring mail & 7 \\
+    &\hspace{-1.2em}Studded leather or ring mail + shield, brigandine, scale mail, hide armor & 6 \\
+    &\hspace{-1.2em}Scale mail or hide + shield, chain mail & 5 \\
+    &\hspace{-1.2em}Chain mail + shield, split mail, banded mail, bronze plate mail & 4 \\
+    &\hspace{-1.2em}Splint mail, banded mail, or bronze plate mail + shield, plate mail & 3 \\
+    &\hspace{-1.2em}Plate mail + shield, field plate & 2 \\
+    &\hspace{-1.2em}Field plate armor + shield, full plate & 1 \\
+    &\hspace{-1.2em}Full plate armor + shield & 0 \\
+    \bottomrule
+  \end{tabularx}
+
+  \normalsize
+  \section*{To Hit}
+  $$\text{\THACO} \le \text{1d20} + \text{Adjustments} + \text{\AC}$$
+  $$\text{\THACO} - \left(\text{1d20} + \text{Adjustments}\right) \le \text{\AC}$$
+
+  \section*{\centering Yes, It's Your Bloody Turn}
+  No, you should have looked that up that spell while you were waiting.
+\end{minipage}
+
+\clearpage
+
+\noindent
+\begin{minipage}[t]{0.545\textwidth}
+  \section*{Base Movement Rates}
+  \parnoteclear
+  \begin{tabularx}{\textwidth}{lccc}
+    \toprule
+    Race & \makecell{Rate\parnote{Measured in tens of yards \textit{per} minute.}} &
+    \textit{per} Round\parnote{$\text{1 round} = \text{1 minute}$} &
+    \textit{per} Turn\parnote{$\text{1 turn} = \text{10 rounds} = \text{10 minutes}$} \\
+    \midrule
+    Human, Elf, Half-elf & 12 &
+    360 ft. \textit{or} 72 sq. &
+    3600 ft. \textit{or} 720 sq. \\
+    Dwarf, Gnome, Halfling & 6 &
+    180 ft. \textit{or} 36 sq. &
+    1800 ft. \textit{or} 360 sq. \\
+    \bottomrule
+  \end{tabularx}
+  \centering\parnotes
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.395\textwidth}
+  \section*{0-Level Hit Points by Title}
+  \begin{tabularx}{\textwidth}{Xr}
+    \toprule
+    Profession & Die Range \\
+    \midrule
+    Manual Laborer & 1d8 \\
+    Soldier & $\text{1d8} + \text{1}$ \\
+    Craftsman & 1d6 \\
+    Scholar & 1d3 \\
+    Invalid & 1d4 \\
+    Child & 1d2 \\
+    Youth & 1d6 \\
+    \bottomrule
+  \end{tabularx}
+\end{minipage}
+\bigskip
+
+\noindent
+\begin{minipage}[c]{0.695\textwidth}
+  \section*{Turning Undead}
+  \parnoteclear
+
+  Roll 1d20. If the number rolled is greater than or equal to the corresponding
+  number for the given undead, then it is turned successfully. ``T'' indicates
+  an automatic success, and ``D'' an automatic dispulsion. A successful turn or
+  dispel affects 2d6 undead, affecting those with the lowest \HD{} first.
+  \medskip
+
+  \begin{tabularx}{\textwidth}{Xcccccccccccc}
+    \toprule
+    \multirow{2}{*}{\makecell{%
+        Type \textit{or} \HD{}\\of Undead%
+        \vphantom{%
+          \parnote{An additional 2d4 creatures of this type are turned.}%
+        }%
+    }} &
+    \multicolumn{12}{c}{%
+      Level of Priest\parnote{%
+        Paladins turn undead as priests who are two levels lower.%
+      }%
+    } \\
+    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10--11 & 12--13 & 14+ \\
+    \midrule
+    Skeleton \textit{o}r 1 \HD{} &
+    10 &  7 &  4 &  T &  T & D  & D  & D* & D* & D* & D* & D* \\
+    Zombie &
+    13 & 10 &  7 &  4 &  T &  T & D  & D  & D* & D* & D* & D* \\
+    Ghoul \textit{or} 2 \HD{} &
+    16 & 13 & 10 &  7 &  4 &  T &  T & D  & D  & D* & D* & D* \\
+    Shadow \textit{or} 3--4 \HD{} &
+    19 & 16 & 13 & 10 &  7 &  4 &  T &  T & D  & D  & D* & D* \\
+    Wight \textit{or} 5 \HD{} &
+    20 & 19 & 16 & 13 & 10 &  7 &  4 &  T &  T & D  & D  & D* \\
+    Ghast &
+       & 20 & 19 & 16 & 13 & 10 &  7 &  4 &  T &  T & D  & D  \\
+    Wraith \textit{or} 6 \HD{} &
+       &    & 20 & 19 & 16 & 13 & 10 &  7 &  4 &  T &  T & D  \\
+    Mummy \textit{or} 7 \HD{} &
+       &    &    & 20 & 19 & 16 & 13 & 10 &  7 &  4 &  T &  T \\
+    Spectre \textit{or} 8 \HD{} &
+       &    &    &    & 20 & 19 & 16 & 13 & 10 &  7 &  4 &  T \\
+    Vampire \textit{or} 9 \HD{} &
+       &    &    &    &    & 20 & 19 & 16 & 13 & 10 &  7 &  4 \\
+    Ghost \textit{or} 10 \HD{} &
+       &    &    &    &    &    & 20 & 19 & 16 & 13 & 10 &  7 \\
+    Lich \textit{or} 11+ \HD{} &
+       &    &    &    &    &    &    & 20 & 19 & 16 & 13 & 10 \\
+    Special\parnote{%
+      Special creatures include unique undead, free-willed undead of the
+      Negative Material Plane, certain Greater and Lesser Powers, and those
+      undead that dwell in the Outer Planes.%
+    } &
+       &    &    &    &    &    &    &    & 20 & 19 & 16 & 13 \\
+    \bottomrule
+  \end{tabularx}
+  \centering\parnotes
+\end{minipage}\hfill
+\begin{minipage}[c]{0.25\textwidth}
+  \section*{Creature Experience Point Values}
+  \begin{tabularx}{\textwidth}{CC}
+    \toprule
+    \HD{} \textit{or} Level & \XP{} Value \\
+    \midrule
+    < \text{1--1} & 7 \\
+    1--1 \textit{to} 1 & 15 \\
+    1+1 \textit{to} 2 & 35 \\
+    2+1 \textit{to} 3 & 65 \\
+    3+1 \textit{to} 4 & 120 \\
+    4+1 \textit{to} 5 & 175 \\
+    5+1 \textit{to} 6 & 270 \\
+    6+1 \textit{to} 7 & 420 \\
+    7+1 \textit{to} 8 & 650 \\
+    8+1 \textit{to} 9 & 975 \\
+    9+1 \textit{to} 10+ & 1,400 \\
+    11 \textit{to} 12+ & 2,000 \\
+    13 \textit{or} more & 3,000 + 1,000 \textit{per} \HD{} over 13 \\
+    \bottomrule
+  \end{tabularx}
+\end{minipage}
+
+\section*{Hit Dice Value Modifiers}
+\begin{minipage}[t]{0.495\textwidth}
+  \begin{tabularx}{\textwidth}{Xr}
+    \toprule
+    Ability & \HD{} Mod. \\
+    \midrule
+    \AC{} 0 or lower & +1 \\
+    Blood drain & +1 \\
+    Breath weapon (\le20 max. dmg.) & +1 \\
+    Breath weapon (>20 max. dmg.) & +2 \\
+    Causes disease & +1 \\
+    Employs psionic devotions/sciences & +1/+2 \\
+    Energy drain & +3 \\
+    Flies & +1 \\
+    \ge4 attacks a round & +1 \\
+    Greater than normal hit points & +1 \\
+    High Intelligence & +1 \\
+    Hit only by magical/silver weapons & +1 \\
+    Immunity to any spell & +1 \\
+    Immunity to any weapon, including ½ damage & +1 \\
+    Invisible at will & +1 \\
+    & \\
+    \bottomrule
+  \end{tabularx}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.495\textwidth}
+  \begin{tabularx}{\textwidth}{Xr}
+    \toprule
+    Ability & \HD{} Mod. \\
+    \midrule
+    Level 2 or lower spells & +1 \\
+    Level 3 or greater spells & +1 \\
+    Magic resistance (0--50\%/51--100\%) & +1/+2 \\
+    Missile weapons & +1 \\
+    Multiple attacks causing 30+ points of damage & +2 \\
+    Paralysis & +2 \\
+    Petrification & +3 \\
+    Poison & +2 \\
+    Possesses magical items usable against PCs & +1 \\
+    Regeneration & +1 \\
+    Single attacking causing 20+ points of damage & +2 \\
+    Special defense form, unlisted & +1 \\
+    Special magical attack form, unlisted & +2 \\
+    Special non-magical attack form, unlisted & +1 \\
+    Swallows whole & +2 \\
+    Weakness or fear & +2 \\
+    \bottomrule
+  \end{tabularx}
+\end{minipage}
+
+% Rogue attacks
+% Climing rates
+
+\end{document}
