@@ -10,13 +10,13 @@
 \usepackage{makecell}
 \usepackage{fontspec}
 \usepackage{xcolor}
-\usepackage{pifont}
 \usepackage{microtype}
 \usepackage{enumitem}
 \usepackage{sectsty}
 \usepackage{fancyhdr}
 \usepackage{titling}
 \usepackage[symbol]{parnotes}
+\usepackage{pifont}
 \usepackage{ccicons}
 \usepackage{tikz}
 \usetikzlibrary{calc}
@@ -36,12 +36,6 @@
 \setmainfont[
   Contextuals=Alternate,
   Ligatures=Discretionary,
-  StylisticSet=18,
-]{Junicode}
-\newfontfamily\oldnum[
-  Contextuals=Alternate,
-  Ligatures=Discretionary,
-  Numbers=OldStyle,
   StylisticSet=18,
 ]{Junicode}
 
@@ -72,18 +66,16 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 \fancyhf{}
-\fancyfoot[EOL]{%
-  \small\oldnum\scshape\thetitle\ \docver\\
-  Sheet \thepage%
-}
+\fancyfoot[EOL]{\oldstylenums{%
+  \small\scshape\thetitle\ \docver\\
+  Sheet \thepage}}
 \fancyfoot[EOC]{%
   \smallskip
   \glass{scale=1, line width=0.5pt}%
 }
-\fancyfoot[EOR]{%
-  \small\oldnum\scshape Tables \ccCopy\ 1989, 1995, 2003 Wizards of the Coast LLC \\
-  Otherwise \ccbysa\ 2020 J. Page%
-}
+\fancyfoot[EOR]{\oldstylenums{%
+  \small\scshape Tables \ccCopy\ 1989, 1995, 2003 Wizards of the Coast LLC \\
+  Otherwise \ccbysa\ 2020 J. Page}}
 
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 
@@ -429,7 +421,7 @@
 \end{minipage}
 
 % Rogue attacks
-% Climing rates
+% Climbing rates
 
 \end{document}
 
