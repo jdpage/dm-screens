@@ -81,6 +81,15 @@
 
 \definecolor{xred}{RGB}{210,62,52}
 \allsectionsfont{\normalfont\color{xred}\scshape\centering}
+\newcommand{\tnote}[2]{%
+  \smash{\raisebox{2pt}{%  2pt is a magic number that seems to get good results.
+      \oldstylenums{\footnotesize\color{black}\begin{tabular}{#1}#2\end{tabular}}}}}
+\newcommand{\tcnotes}[3]{%
+  \rlap{\tnote{l}{#1}}\hfill #2\hfill\llap{\tnote{r}{#3}}}
+\newcommand{\tlnote}[2]{%
+  \rlap{\tnote{l}{#1}}\hfill #2}
+\newcommand{\trnote}[2]{%
+  \hfill #1\hfill\tnote{r}{#2}}
 
 \newcommand{\STR}[0]{{\scshape str}}
 \newcommand{\DEX}[0]{{\scshape dex}}
@@ -99,7 +108,10 @@
 \begin{document}
 \noindent
 \begin{minipage}[t]{\textwidth}
-  \section*{Calculated THAC0s}
+  \section*{\tcnotes
+    {tables 38 \& 39\\table 53}
+    {Calculated THAC0s {\normalfont\&} Creature THAC0}
+    {dmg 76\\phb 121}}
   \begin{tabularx}{\textwidth}{Xrrrrrrrrrrrrrrrrrrrr}
     \toprule
     Group & \multicolumn{20}{c}{Level} \\
@@ -125,8 +137,11 @@
 \smallskip
 
 \noindent
-\begin{minipage}[t]{0.495\textwidth}
-  \section*{Combat Modifiers}
+\begin{minipage}[t]{0.45\textwidth}
+  \section*{\tcnotes
+    {table 35\\table 51}
+    {Combat Modifiers}
+    {dmg 74\\phb 120}}
   \begin{tabularx}{\textwidth}{Xr}
     \toprule
     Situation & Attack Roll Modifier \\
@@ -144,8 +159,11 @@
   \end{tabularx}
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.495\textwidth}
-  \section*{Standard Modifiers to Initiative}
+\begin{minipage}[t]{0.53\textwidth}
+  \section*{\tcnotes
+    {table 40\\table 55}
+    {Standard Modifiers to Initiative}
+    {dmg 78\\phb 125}}
   \begin{tabularx}{\textwidth}{Xr}
     \toprule
     Specific Situation & Modifier \\
@@ -165,8 +183,11 @@
 \bigskip
 
 \noindent
-\begin{minipage}[t]{0.660\textwidth}
-  \section*{Character Saving Throws}
+\begin{minipage}[t]{0.600\textwidth}
+  \section*{\tcnotes
+    {table 46\\table 60}
+    {Character Saving Throws}
+    {dmg 92\\phb 134}}
   \small
   \begin{tabularx}{\textwidth}{Xcrrrrr}
     \toprule
@@ -217,8 +238,8 @@
   \end{tabularx}
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.330\textwidth}
-  \section*{Armor Class Ratings}
+\begin{minipage}[t]{0.390\textwidth}
+  \section*{\tcnotes{table 46}{Armor Class Ratings}{phb 99}}
   \begin{tabularx}{\textwidth}{lXr}
     \toprule
     \multicolumn{2}{l}{Type of Armor} & \AC \\
@@ -238,11 +259,19 @@
   \end{tabularx}
 
   \normalsize
-  \section*{To Hit}
-  $$\text{\THACO} \le \text{1d20} + \text{Adjustments} + \text{\AC}$$
-  $$\text{\THACO} - \left(\text{1d20} + \text{Adjustments}\right) \le \text{\AC}$$
+  \section*{\tcnotes
+    {dmg 73--74}
+    {To Hit}
+    {phb 119}}
 
-  \section*{\centering Yes, It's Your Bloody Turn}
+  $$\text{\THACO} - \text{Modifiers} - \text{\AC} \le \text{1d20}$$
+  $$\text{\THACO} - \text{Modifiers} - \text{1d20} \le \text{\AC}$$
+  $$\text{\THACO} - \left(\text{1d20} + \text{Modifiers}\right) \le \text{\AC}$$
+
+  \section*{\tcnotes
+    {\textdagger}
+    {Yes, It's Your Bloody Turn}
+    {\textdagger}}
   No, you should have looked that up that spell while you were waiting.
 \end{minipage}
 
@@ -250,7 +279,10 @@
 
 \noindent
 \begin{minipage}[t]{0.545\textwidth}
-  \section*{Base Movement Rates}
+  \section*{\tcnotes
+    {table 64}
+    {Base Movement Rates}
+    {phb 157}}
   \parnoteclear
   \begin{tabularx}{\textwidth}{lccc}
     \toprule
@@ -269,8 +301,10 @@
   \centering\parnotes
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.395\textwidth}
-  \section*{0-Level Hit Points by Title}
+\begin{minipage}[t]{0.425\textwidth}
+  \section*{\trnote
+    {0-Level Hit Points by Title}
+    {table 10\\dmg 27}}
   \begin{tabularx}{\textwidth}{Xr}
     \toprule
     Profession & Die Range \\
@@ -289,7 +323,10 @@
 
 \noindent
 \begin{minipage}[c]{0.695\textwidth}
-  \section*{Turning Undead}
+  \section*{\tcnotes
+    {table 47\\table 61}
+    {Turning Undead}
+    {dmg 96\\phb 137}}
   \parnoteclear
 
   Roll 1d20. If the number rolled is greater than or equal to the corresponding
@@ -347,8 +384,10 @@
   \end{tabularx}
   \centering\parnotes
 \end{minipage}\hfill
-\begin{minipage}[c]{0.25\textwidth}
-  \section*{Creature Experience Point Values}
+\begin{minipage}[c]{0.27\textwidth}
+  \section*{
+    \tcnotes{table 31\\\midrule}{Creature}{dmg 69\\\midrule}\\
+    Experience Point Values}
   \begin{tabularx}{\textwidth}{CC}
     \toprule
     \HD{} \textit{or} Level & \XP{} Value \\
@@ -370,7 +409,7 @@
   \end{tabularx}
 \end{minipage}
 
-\section*{Hit Dice Value Modifiers}
+\section*{\tcnotes{table 32}{Hit Dice Value Modifiers}{dmg 69}}
 \begin{minipage}[t]{0.495\textwidth}
   \begin{tabularx}{\textwidth}{Xr}
     \toprule
